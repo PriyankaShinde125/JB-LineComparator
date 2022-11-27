@@ -1,16 +1,12 @@
 public class Line implements Comparable<Line> {
-    int x1;
-    int y1;
-    int x2;
-    int y2;
     double length;
+    Point p1;
+    Point p2;
 
-    public Line(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    public Line(Point p1, Point p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.length = Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) + Math.pow(p2.getY() - p1.getY(), 2));
     }
 
     public double getLength() {
@@ -26,5 +22,14 @@ public class Line implements Comparable<Line> {
     @Override
     public int compareTo(Line lineObj) {
         return Double.compare(this.length, lineObj.length);
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "length=" + length +
+                ", p1=" + p1 +
+                ", p2=" + p2 +
+                '}';
     }
 }
